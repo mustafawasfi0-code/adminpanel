@@ -6,7 +6,7 @@ export async function listPatients(): Promise<Profile[]> {
   const { data, error } = await supabase
     .from('profiles')
     .select(
-      'id, name, city, age, sex, height_cm, personal_best_pef, doctor_name, doctor_phone, role, updated_at'
+      'id, email, name, city, age, sex, height_cm, personal_best_pef, doctor_name, doctor_phone, role, updated_at'
     )
     .eq('role', 'patient')
     .order('updated_at', { ascending: false });
@@ -21,7 +21,7 @@ export async function loadPatientReport(userId: string): Promise<PatientReport> 
       supabase
         .from('profiles')
         .select(
-          'id, name, city, age, sex, height_cm, personal_best_pef, doctor_name, doctor_phone, role, updated_at'
+          'id, email, name, city, age, sex, height_cm, personal_best_pef, doctor_name, doctor_phone, role, updated_at'
         )
         .eq('id', userId)
         .single(),
