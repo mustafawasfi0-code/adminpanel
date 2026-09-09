@@ -59,3 +59,4 @@ export interface PatientReport {
   symptoms: SymptomLog[];
   triggers: TriggerLog[];
 }
+ 
